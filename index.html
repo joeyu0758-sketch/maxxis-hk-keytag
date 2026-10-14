@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maxxis HK Key Tags</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Noto+Sans+TC:wght@500;700;900&family=JetBrains+Mono:wght@400;500&family=Permanent+Marker&family=Archivo+Narrow:wght@700&family=Unbounded:wght@800&family=Silkscreen:wght@400;700&display=swap">
+<style>
+/* Product viewer: full-width 3D stage, controls row under it. Single committed white look. */
+:root{
+  --ground:#ffffff; --panel:#f2f0eb; --ink:#0b0b0b; --ink-soft:#3a3a37; --muted:#6b6b67; --accent:#c23d0c; --rule:#d6d4ce;
+  --sans:"Archivo","Noto Sans TC",Arial,sans-serif;
+  --mono:"JetBrains Mono","Noto Sans TC",ui-monospace,monospace;
+  --stage:#ffffff;
+  color-scheme:light;
+}
+html,body{background:var(--ground);color:var(--ink);font-family:var(--sans)}
+.wrap{max-width:980px;margin:0 auto;padding-block:24px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.eyebrow,.spec,.lbl,.hint{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{color:var(--accent)}
+h1{margin:6px 0 0;font-size:clamp(24px,5.5vw,32px);font-weight:800;letter-spacing:-.02em}
+.spec{color:var(--muted);line-height:1.6;text-align:right}
+.stage{position:relative;width:100%;height:min(74vh,680px);min-height:420px;border-radius:0;overflow:hidden;background:var(--stage);transition:background .6s}
+.stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.hint{position:absolute;left:14px;bottom:12px;color:var(--muted);pointer-events:none}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;border:2px solid var(--ink);background:var(--ground);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0;z-index:2}
+.nav:hover{background:var(--ink);color:var(--ground)}
+.nav:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.nav.prev{left:max(14px,env(safe-area-inset-left,0px))}
+.nav.next{right:max(14px,env(safe-area-inset-right,0px))}
+.tagcount{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--ground);padding:6px 14px;border-radius:999px;pointer-events:none}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:13px}
+.controls{display:flex;flex-wrap:wrap;gap:18px 32px}
+.ctl{display:flex;flex-direction:column;gap:8px}
+.lbl{color:var(--ink-soft)}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:40px;height:40px;border-radius:999px;border:2px solid var(--rule);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 3px var(--ground) inset}
+.btn{min-height:40px;padding:0 14px;border-radius:999px;border:2px solid var(--rule);background:transparent;color:var(--ink);font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.sw:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.editor{display:flex;flex-direction:column;gap:16px;border-top:2px solid var(--ink);padding-top:16px}
+.ed-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em}
+.ed-body{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.ed-wrap{flex:0 0 auto;width:min(270px,46vw);background:var(--panel);padding:16px;display:flex;justify-content:center}
+.ed-wrap canvas{width:100%;height:auto;display:block;touch-action:none;cursor:grab}
+.ed-tools{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+input[type=text],select{min-height:44px;padding:0 12px;border:2px solid var(--rule);border-radius:0;background:var(--ground);color:var(--ink);font:500 15px var(--sans);width:100%;box-sizing:border-box}
+input[type=text]:focus-visible,select:focus-visible,input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=range]{width:100%;accent-color:#f2541b}
+.btn.solid{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+label.btn{display:inline-flex;align-items:center}
+.vh{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+#landmarks,#dimsum{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.lm{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 6px 10px;border:2px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;font:500 11px/1.3 var(--mono);text-align:center}
+.lm canvas{width:64px;height:64px;background:#f2541b;border-radius:6px}
+.lm:hover{border-color:var(--ink)}
+.lm:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{margin:0;font-size:13px;line-height:1.5;color:var(--muted);max-width:52ch}
+@media (prefers-reduced-motion: reduce){.stage{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Maxxis · HK event · Dec 2026</div>
+    </div>
+    <div class="spec">3 key tags · 45 × 90 × 5 mm<br>glossy acrylic · split ring</div>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="loading" id="loading">Loading 3D model…</div>
+    <div class="hint">Spin cycles the tags · drag to look around</div>
+    <button class="nav prev" id="prevTag" aria-label="Previous tag"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    <button class="nav next" id="nextTag" aria-label="Next tag"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    <div class="tagcount" id="tagcount" aria-live="polite">Tag 1 / 3</div>
+  </div>
+
+  <div class="controls">
+    <div class="ctl">
+      <span class="lbl" id="l2">View</span>
+      <div class="row" role="group" aria-labelledby="l2" id="views">
+        <button class="btn" id="v1" data-v="spin" aria-pressed="true">Spin</button>
+        <button class="btn" id="v2" data-v="front" aria-pressed="false">Front</button>
+        <button class="btn" id="v3" data-v="back" aria-pressed="false">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+  var stage = document.getElementById('stage');
+  if(!window.THREE){ document.getElementById('loading').textContent = '3D viewer could not load. Check your connection and reload.'; return; }
+
+  var state = { tag:'#f2541b', print:'#0b0b0b' };
+
+  // ---------- renderer / scene ----------
+  var renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.NoToneMapping;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  stage.insertBefore(renderer.domElement, stage.firstChild);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(30, 1, 1, 2000);
+  camera.position.set(0, 24, 330);
+
+  var controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 6, 70);
+  controls.enableDamping = true;
+  controls.enablePan = false;
+  controls.minDistance = 120; controls.maxDistance = 700;
+  controls.autoRotate = false;
+  controls.autoRotateSpeed = 1.6;
+
+  // soft studio environment for reflections
+  var pmrem = new THREE.PMREMGenerator(renderer);
+  function buildEnv(cols){
+    var env = new THREE.Scene();
+    var room = new THREE.Mesh(new THREE.BoxGeometry(100,100,100), new THREE.MeshBasicMaterial({ color:cols.room, side:THREE.BackSide }));
+    env.add(room);
+    function box(c, w, h, x, y, z, ry){
+      var m = new THREE.Mesh(new THREE.PlaneGeometry(w,h), new THREE.MeshBasicMaterial({ color:c, side:THREE.DoubleSide }));
+      m.position.set(x,y,z); m.lookAt(0,0,0); env.add(m);
+    }
+    box(cols.key, 40, 22, -30, 30, 35);
+    box(cols.rim, 14, 50, 45, 5, -30);
+    box(cols.fill, 50, 10, 0, -35, 40);
+    var tex = pmrem.fromScene(env, 0.03).texture;
+    return tex;
+  }
+
+  var hemi = new THREE.HemisphereLight(0xffffff, 0x202020, 0.35); scene.add(hemi);
+  var key = new THREE.DirectionalLight(0xffffff, 2.2);
+  key.position.set(-80, 140, 120); key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048);
+  var sc = key.shadow.camera; sc.left=-150; sc.right=150; sc.top=110; sc.bottom=-110; sc.near=10; sc.far=500;
+  key.shadow.radius = 6; key.shadow.bias = -0.0004;
+  scene.add(key);
+  var rim = new THREE.DirectionalLight(0xffffff, 1.2); rim.position.set(120, 40, -140); scene.add(rim);
+  var fill = new THREE.PointLight(0xffffff, 0.5, 600); fill.position.set(60, -30, 160); scene.add(fill);
+
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(600,600), new THREE.ShadowMaterial({ opacity:0.38 }));
+  floor.rotation.x = -Math.PI/2; floor.position.y = -64; floor.receiveShadow = true; scene.add(floor);
+
+  // ---------- tag geometry (mm) ----------
+  function P(x,y){ return new THREE.Vector2((x-135)/6, (270-y)/6); }
+  var s = new THREE.Shape();
+  var a = P(85,40); s.moveTo(a.x,a.y);
+  function q(cx,cy,x,y){ var c=P(cx,cy), e=P(x,y); s.quadraticCurveTo(c.x,c.y,e.x,e.y); }
+  function l(x,y){ var e=P(x,y); s.lineTo(e.x,e.y); }
+  q(85,6,135,6); q(185,6,185,40); l(258,250); q(265,270,258,290); l(185,500);
+  q(185,534,135,534); q(85,534,85,500); l(12,290); q(5,270,12,250); l(85,40);
+  var hole = new THREE.Path(); hole.absarc(0, 40, 2.3, 0, Math.PI*2, true); s.holes.push(hole);
+
+  var DEPTH = 3.8, BT = 0.6;
+  var geo = new THREE.ExtrudeGeometry(s, { depth:DEPTH, bevelEnabled:true, bevelThickness:BT, bevelSize:0.6, bevelSegments:5, curveSegments:48 });
+  geo.translate(0,0,-DEPTH/2);
+  var FACE = DEPTH/2 + BT;
+
+  // hex is sRGB; convert to linear so the rendered orange matches #F2541B
+  var plastic = new THREE.MeshPhysicalMaterial({ color:new THREE.Color(state.tag).convertSRGBToLinear(), roughness:0.3, metalness:0, clearcoat:0.6, clearcoatRoughness:0.12, reflectivity:0.35, envMapIntensity:0.5 });
+  // ---------- three identical tags side by side ----------
+  var W = 1080, H = 2160;
+  var metal = new THREE.MeshStandardMaterial({ color:0xd9d9d6, metalness:1, roughness:0.18 });
+  function halfWidthAt(yPx){
+    var yy = yPx > 270 ? 540 - yPx : yPx;
+    var x = 185 + 73*(yy-40)/210;
+    return (x-135)/6 - 1.3;
+  }
+  function makeFace(g, isBack){
+    var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    var tex = new THREE.CanvasTexture(cv);
+    tex.encoding = THREE.sRGBEncoding; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    var mat = new THREE.MeshStandardMaterial({ map:tex, transparent:true, roughness:0.55, metalness:0, depthWrite:false, polygonOffset:true, polygonOffsetFactor:-2 });
+    var m = new THREE.Mesh(new THREE.PlaneGeometry(45, 90), mat);
+    m.position.z = isBack ? -(FACE+0.02) : (FACE+0.02);
+    if(isBack) m.rotation.y = Math.PI;
+    g.add(m);
+    return { cv:cv, tex:tex };
+  }
+  var R = 70;
+  var carousel = new THREE.Group(); scene.add(carousel);
+  var TAG_X = [0, 1, 2];
+  var tags = TAG_X.map(function(x, i){
+    var a = i*Math.PI*2/3;
+    var holder = new THREE.Group(); holder.position.set(R*Math.sin(a), 0, R*Math.cos(a)); holder.rotation.y = a; carousel.add(holder);
+    var g = new THREE.Group(); holder.add(g);
+    var mat = plastic.clone();
+    var body = new THREE.Mesh(geo, mat); body.castShadow = true; body.receiveShadow = true; g.add(body);
+    [58,66,74,82,458,466,474,482].forEach(function(yPx){
+      var w = halfWidthAt(yPx)*2;
+      [1,-1].forEach(function(side){
+        var r = new THREE.Mesh(new THREE.BoxGeometry(w, 0.7, 0.5, 1,1,1), mat);
+        r.position.set(0, (270-yPx)/6, side*(FACE+0.2)); r.castShadow = true; g.add(r);
+      });
+    });
+    [-0.5,0.5].forEach(function(dx){
+      var t = new THREE.Mesh(new THREE.TorusGeometry(7.2, 0.55, 20, 120), metal);
+      t.rotation.y = Math.PI/2; t.position.set(dx, 40+7.2, 0); t.castShadow = true; g.add(t);
+    });
+    return { mat:mat, color:'#f2541b', print:'#0b0b0b', group:g, holder:holder, angle:a, flip:0, front:makeFace(g, false), back:makeFace(g, true), sides:{ front:[], back:[] }, phase:i*1.7 };
+  });
+  function txt(ctx, str, x, y, font, spacing){
+    ctx.font = font;
+    try{ ctx.letterSpacing = (spacing||0) + 'px'; }catch(e){}
+    ctx.fillText(str, x, y);
+  }
+  // ---------- user artwork (1080 x 2160 canvas = 270 x 540 proof units x4) ----------
+  var TAG_PATH = new Path2D('M85 40 Q85 6 135 6 Q185 6 185 40 L258 250 Q265 270 258 290 L185 500 Q185 534 135 534 Q85 534 85 500 L12 290 Q5 270 12 250 Z');
+  var FONTS = {
+    hand:{ w:'400', f:"'Permanent Marker', cursive" },
+    sans:{ w:'900', f:"'Archivo', 'Noto Sans TC', sans-serif" },
+    cjk:{ w:'900', f:"'Noto Sans TC', sans-serif" },
+    mono:{ w:'500', f:"'JetBrains Mono', 'Noto Sans TC', monospace" },
+    narrow:{ w:'700', f:"'Archivo Narrow', 'Noto Sans TC', sans-serif" },
+    wide:{ w:'800', f:"'Unbounded', 'Noto Sans TC', sans-serif" },
+    pixel:{ w:'700', f:"'Silkscreen', 'Noto Sans TC', monospace" }
+  };
+  function fontStr(it){ var f = FONTS[it.font] || FONTS.hand; return f.w + ' ' + it.size + 'px ' + f.f; }
+  // hand-drawn landmark line art, each in its own unit box (W x H)
+  var SKETCHES = {
+    boc:{ W:80, H:100, size:140, d:'M26 100 L26 44 L40 22 L54 36 L54 100 M2 100 H78 M40 22 L40 100 M26 100 L54 76 M54 100 L26 76 M26 76 L54 52 M54 76 L26 52 M26 52 L40 36 L54 52 M37 27 L37 5 M43 29 L43 10' },
+    buddha:{ W:80, H:92, size:110, d:'M5 80 H75 V90 H5 Z M12 72 H68 V80 H12 Z M18 66 Q24 62 30 66 Q36 62 42 66 Q48 62 54 66 Q60 62 62 66 M37.5 45 Q28 45 26 52 Q22 60 16 66 M42.5 45 Q52 45 54 52 Q58 60 64 66 M47 34 A7 7 0 1 1 33 34 A7 7 0 1 1 47 34 M36 27.5 Q40 22 44 27.5 M37.5 41 V45 M42.5 41 V45 M26 60 Q33 58 38 62 M50 57 L55 47 L55 41 M53 41 Q55 36 57 41 M34 50 Q40 56 46 50' },
+    ferry:{ W:100, H:50, size:170, d:'M5 30 H95 L88 40 H12 Z M14 30 V20 H86 V30 M10 20 H90 M17 20 L19 14 H81 L83 20 M44 14 L46 8 H56 L58 14 M20 23 h7 v4 h-7 Z M33 23 h7 v4 h-7 Z M46 23 h7 v4 h-7 Z M59 23 h7 v4 h-7 Z M72 23 h7 v4 h-7 Z M2 46 Q8 42 14 46 T26 46 T38 46 T50 46 T62 46 T74 46 T86 46 T98 46' },
+    clock:{ W:40, H:100, size:70, d:'M10 100 V30 H30 V100 M6 100 H34 M12 30 V18 H28 V30 M14 18 V12 H26 V18 M15 12 Q20 3 25 12 M20 6 V0 M26 41 A6 6 0 1 1 14 41 A6 6 0 1 1 26 41 M20 41 V37 M20 41 L23 43 M10 54 H30 M10 76 H30 M17 60 V70 M23 60 V70 M17 82 V94 M23 82 V94' },
+    tram:{ W:100, H:72, size:160, d:'M2 70 L98 12 M2 64 L94 8 M30 48 L70 24 L70 8 L30 32 Z M28 32 L72 6 M35 40 V34 L42 30 V36 Z M47 33 V27 L54 23 V29 Z M59 26 V20 L66 16 V22 Z M40 45 A2.4 2.4 0 1 1 35.2 45 A2.4 2.4 0 1 1 40 45 M64 30.5 A2.4 2.4 0 1 1 59.2 30.5 A2.4 2.4 0 1 1 64 30.5 M12 66 l-3 -5 M22 60 l-3 -5 M80 24 l-3 -5 M90 18 l-3 -5' },
+    steamer:{ W:100, H:68, size:180, d:'M8 38 Q50 32 92 38 V60 Q50 67 8 60 Z M8 46 Q50 51 92 46 M8 53 Q50 58 92 53 M18 37 Q20 23 32 23 Q44 23 46 36 M24 27 l2 4 M30 24 l1 4 M37 25 l-1 4 M40 33 Q42 18 54 18 Q66 18 68 34 M47 21 l2 4 M54 19 v4 M61 21 l-2 4 M62 36 Q64 25 74 25 Q84 25 85 37 M69 28 l1.5 3.5 M77 27 l-1 4 M30 16 Q26 12 30 8 Q34 4 30 0 M54 12 Q50 8 54 4 Q58 0 54 -4 M77 18 Q73 14 77 10 Q81 6 77 2' },
+    hargow:{ W:60, H:44, size:120, d:'M6 36 Q4 30 8 26 Q9 20 14 22 Q15 14 22 16 Q25 9 30 12 Q35 9 38 16 Q45 14 46 22 Q51 20 52 26 Q56 30 54 36 Q30 42 6 36 Z M14 22 l3 5 M22 16 l2 5 M30 12 v5 M38 16 l-2 5 M46 22 l-3 5 M20 32 Q30 24 40 32' },
+    siumai:{ W:50, H:58, size:90, d:'M8 22 Q8 51 12 53 Q25 57 38 53 Q42 51 42 22 M8 22 Q12 16 16 22 Q20 16 24 22 Q28 16 32 22 Q36 16 40 22 Q42 19 42 22 M10 22 Q25 8 40 22 M28 13 A3 3 0 1 1 22 13 A3 3 0 1 1 28 13 M16 27 Q15 40 17 51 M25 27 V54 M34 27 Q35 40 33 51' },
+    bao:{ W:60, H:52, size:120, d:'M4 42 Q2 16 30 10 Q58 16 56 42 Q30 48 4 42 Z M21 17 L26 21 L30 15 L34 21 L39 17 M23 19 Q30 28 37 19 M8 43 L13 49 H47 L52 43' },
+  };
+  var SKETCH_PATHS = {};
+  Object.keys(SKETCHES).forEach(function(k){ SKETCH_PATHS[k] = new Path2D(SKETCHES[k].d); });
+  function drawSketch(ctx, key, w, minLw){
+    var def = SKETCHES[key]; if(!def) return;
+    var s = w/def.W, lw = Math.max(minLw || 7, w*0.022)/s;
+    ctx.save(); ctx.scale(s, s); ctx.translate(-def.W/2, -def.H/2);
+    ctx.strokeStyle = state.print; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.lineWidth = lw; ctx.stroke(SKETCH_PATHS[key]);
+    // second, slightly offset pass gives the hand-drawn doubled line
+    ctx.translate(def.W*0.022, -def.H*0.012); ctx.rotate(0.016);
+    ctx.lineWidth = lw*0.5; ctx.stroke(SKETCH_PATHS[key]);
+    ctx.restore();
+  }
+  // text bent along a circular arc; curve -100..100 maps to up to a half circle
+  function arcGeom(ctx, it){
+    var w = Math.max(ctx.measureText(it.text).width, 1);
+    var theta = Math.abs(it.curve)/100*Math.PI, r = w/theta;
+    var sag = r*(1 - Math.cos(theta/2));
+    return { w:w, theta:theta, r:r, sag:sag, chord: 2*r*Math.sin(theta/2) };
+  }
+  function drawArcText(ctx, it){
+    var g = arcGeom(ctx, it), up = it.curve > 0, x = -g.w/2;
+    var shift = up ? -g.sag/2 : g.sag/2;
+    Array.from(it.text).forEach(function(ch){
+      var cw = ctx.measureText(ch).width, phi = (x + cw/2)/g.r;
+      ctx.save();
+      if(up){ ctx.translate(g.r*Math.sin(phi), g.r - g.r*Math.cos(phi) + shift); ctx.rotate(phi); }
+      else { ctx.translate(g.r*Math.sin(phi), -(g.r - g.r*Math.cos(phi)) + shift); ctx.rotate(-phi); }
+      ctx.fillText(ch, 0, 0);
+      ctx.restore();
+      x += cw;
+    });
+  }
+  function drawItems(ctx, list){
+    ctx.save(); ctx.scale(4,4); ctx.clip(TAG_PATH); ctx.scale(0.25,0.25);
+    list.forEach(function(it){
+      ctx.save(); ctx.translate(it.x, it.y); ctx.rotate(it.rot*Math.PI/180);
+      if(it.type === 'text'){
+        ctx.font = fontStr(it); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = state.print;
+        if(it.curve){ drawArcText(ctx, it); } else { ctx.fillText(it.text, 0, 0); }
+      } else if(it.type === 'sketch'){
+        drawSketch(ctx, it.key, it.size*4);
+      } else if(it.img && it.img.complete){
+        var w = it.size*4, h = w*it.ratio; ctx.drawImage(it.img, -w/2, -h/2, w, h);
+      }
+      ctx.restore();
+    });
+    ctx.restore();
+  }
+  function paintFaces(){
+    tags.forEach(function(t){
+      [['front', t.front], ['back', t.back]].forEach(function(pair){
+        var f = pair[1], ctx = f.cv.getContext('2d'); state.print = t.print;
+        ctx.clearRect(0,0,W,H); drawItems(ctx, t.sides[pair[0]]); f.tex.needsUpdate = true;
+      });
+    });
+  }
+
+  // ---------- lighting presets ----------
+  var presets = {
+    studio:{ bg:'#ffffff', key:[0xffffff,1.25], rim:[0xffffff,0.6], fill:[0xffffff,0.25], hemi:[0xffffff,0x9a9a96,0.55], env:{room:0x707070,key:0xffffff,rim:0xdddddd,fill:0x999999}, shadow:0.22 },
+    golden:{ bg:'#ffffff', key:[0xffd9b8,1.3], rim:[0xd6c6e2,0.7], fill:[0xfff0e4,0.25], hemi:[0xfff2e6,0x9a8fa0,0.55], env:{room:0x6e6470,key:0xffe2c8,rim:0xd8cce4,fill:0x9a8a84}, shadow:0.2 },
+    neon:{ bg:'#ffffff', key:[0xdfe4ff,1.1], rim:[0xff7a40,1.6], fill:[0x6f7cff,0.5], hemi:[0xf0f2ff,0x8a8a96,0.5], env:{room:0x60636e,key:0xdfe4ff,rim:0xff7a40,fill:0x6f7cff}, shadow:0.24 }
+  };
+  var envTex = null;
+  function applyLight(name){
+    var p = presets[name];
+    stage.style.background = p.bg;
+    key.color.setHex(p.key[0]); key.intensity = p.key[1];
+    rim.color.setHex(p.rim[0]); rim.intensity = p.rim[1];
+    fill.color.setHex(p.fill[0]); fill.intensity = p.fill[1];
+    hemi.color.setHex(p.hemi[0]); hemi.groundColor.setHex(p.hemi[1]); hemi.intensity = p.hemi[2];
+    floor.material.opacity = p.shadow;
+    if(envTex) envTex.dispose();
+    envTex = buildEnv(p.env); scene.environment = envTex;
+  }
+  applyLight('studio');
+
+  // ---------- views ----------
+  // carousel: one tag at a time comes to the front; the others shrink back
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var focus = 0, carGoal = 0, autoCycle = !reduceMotion, lastSwitch = 0;
+  function focusTag(i, viaCycle){
+    if(viaCycle){ carGoal -= Math.PI*2/3; }
+    else {
+      var want = -tags[i].angle, d = want - carGoal;
+      d = Math.atan2(Math.sin(d), Math.cos(d)); carGoal += d;
+    }
+    focus = i;
+    var tc = document.getElementById('tagcount'); if(tc) tc.textContent = 'Tag ' + (i+1) + ' / ' + tags.length;
+  }
+  function setView(v){
+    if(v === 'spin'){ autoCycle = true; lastSwitch = clock ? clock.getElapsedTime() : 0; tags.forEach(function(t){ t.flip = 0; }); return; }
+    autoCycle = false;
+    tags[focus].flip = v === 'back' ? Math.PI : 0;
+  }
+
+  // ---------- UI ----------
+  function wire(id, fn){
+    var g = document.getElementById(id);
+    g.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if(!b) return;
+      g.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+      fn(b.dataset.v);
+    });
+  }
+  wire('views', setView);
+  controls.addEventListener('start', function(){
+    var vs = document.getElementById('views');
+    if(autoCycle){ autoCycle = false; vs.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed','false'); }); }
+  });
+
+
+  // ---------- design data (design.json) ----------
+  var IMG_FILES = { ICON:'icon.png', WORD:'wordmark.png' };
+  function lum(hex){
+    var c = [1,3,5].map(function(i){ var v = parseInt(hex.substr(i,2),16)/255; return v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4); });
+    return 0.2126*c[0] + 0.7152*c[1] + 0.0722*c[2];
+  }
+  function setTagColor(t, hex){
+    t.color = hex; t.mat.color.set(hex).convertSRGBToLinear();
+    var Lm = lum(hex); t.print = (Lm + 0.05)/0.05 >= 1.05/(Lm + 0.05) ? '#0b0b0b' : '#f2f0eb';
+  }
+  function unpack(list){
+    return (list || []).map(function(it){
+      if(it.type === 'image'){
+        var img = new Image(); img.onload = paintFaces;
+        img.src = IMG_FILES[it.src] || it.src; it.img = img;
+      }
+      if(it.rot == null) it.rot = 0;
+      return it;
+    });
+  }
+  function applyDesign(data){
+    (data || []).forEach(function(d, i){
+      var t = tags[i]; if(!t) return;
+      if(d.color) setTagColor(t, d.color);
+      t.sides.front = unpack(d.front); t.sides.back = unpack(d.back);
+    });
+    paintFaces();
+  }
+  fetch('design.json', { cache:'no-store' }).then(function(r){ return r.json(); }).then(applyDesign).catch(function(){});
+
+  // arrow buttons
+  function stepTag(dir){
+    autoCycle = false;
+    tags.forEach(function(t){ t.flip = 0; });
+    document.querySelectorAll('#views button').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.v === 'front' ? 'true' : 'false'); });
+    focusTag((focus + dir + tags.length) % tags.length, dir > 0);
+  }
+  document.getElementById('prevTag').addEventListener('click', function(){ stepTag(-1); });
+  document.getElementById('nextTag').addEventListener('click', function(){ stepTag(1); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight') stepTag(1);
+    else if(e.key === 'ArrowLeft') stepTag(-1);
+  });
+
+  paintFaces();
+  var fontLoads = ["500 40px 'JetBrains Mono'","900 150px 'Noto Sans TC'","900 64px 'Archivo'","80px 'Permanent Marker'","700 64px 'Archivo Narrow'","800 64px 'Unbounded'","700 64px 'Silkscreen'"]
+    .map(function(f){ return document.fonts ? document.fonts.load(f, 'Maxxis 香港 Text') : Promise.resolve(); });
+  Promise.all(fontLoads).then(paintFaces, function(){});
+
+  // ---------- loop ----------
+  function resize(){
+    var w = stage.clientWidth, h = stage.clientHeight;
+    renderer.setSize(w, h, false); camera.aspect = w/h;
+    camera.fov = w < 520 ? 38 : 30; camera.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', resize); resize();
+  document.getElementById('loading').hidden = true;
+
+  var clock = new THREE.Clock();
+  (function tick(){
+    var t = clock.getElapsedTime();
+    if(autoCycle && t - lastSwitch > 3.5){ lastSwitch = t; focusTag((focus + 1) % tags.length, true); }
+    carousel.rotation.y += (carGoal - carousel.rotation.y) * 0.06;
+    tags.forEach(function(tg, i){
+      tg.group.position.y = Math.sin(t*1.2 + tg.phase)*1.6;
+      tg.group.rotation.z = Math.sin(t*0.8 + tg.phase)*0.03;
+      tg.group.rotation.y += (tg.flip - tg.group.rotation.y) * 0.08;
+      var sc = i === focus ? 1 : 0.6;
+      tg.holder.scale.setScalar(tg.holder.scale.x + (sc - tg.holder.scale.x) * 0.08);
+    });
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  })();
+})();
+</script>
+</body>
+</html>
