@@ -3,79 +3,166 @@
   "color": "#f2541b",
   "front": [
    {
-    "type": "sketch",
-    "key": "steamer",
-    "size": 180,
+    "type": "image",
+    "curve": 0,
+    "size": 14,
     "x": 540,
-    "y": 1080,
-    "rot": 0
+    "y": 2028.7738037109375,
+    "rot": 0,
+    "src": "ICON",
+    "ratio": 1.378
    }
   ],
   "back": [
    {
-    "type": "image",
-    "src": "ICON",
-    "ratio": 1.378,
-    "size": 90,
+    "type": "text",
+    "text": "2026",
+    "font": "mono",
+    "curve": 0,
+    "size": 45,
     "x": 540,
-    "y": 900,
+    "y": 392.1080322265625,
     "rot": 0
    },
    {
-    "type": "image",
-    "src": "WORD",
-    "ratio": 0.17142857142857143,
-    "size": 190,
+    "type": "text",
+    "text": "#1",
+    "font": "mono",
+    "curve": 0,
+    "size": 67,
     "x": 540,
-    "y": 1260,
+    "y": 2035.985595703125,
+    "rot": 0
+   },
+   {
+    "type": "sketch",
+    "curve": 0,
+    "key": "boc",
+    "size": 97,
+    "x": 526.435791015625,
+    "y": 941.447021484375,
+    "rot": 0
+   },
+   {
+    "type": "text",
+    "text": "RIDE ASIA",
+    "font": "mono",
+    "curve": 0,
+    "size": 44,
+    "x": 525.0244140625,
+    "y": 1260.611572265625,
     "rot": 0
    }
   ]
  },
  {
-  "color": "#f2541b",
-  "front": [],
-  "back": [
+  "color": "#0b8a5b",
+  "front": [
    {
     "type": "image",
-    "src": "ICON",
-    "ratio": 1.378,
-    "size": 90,
+    "curve": 0,
+    "size": 14,
     "x": 540,
-    "y": 900,
+    "y": 2028.7738037109375,
+    "rot": 0,
+    "src": "ICON",
+    "ratio": 1.378
+   }
+  ],
+  "back": [
+   {
+    "type": "sketch",
+    "curve": 0,
+    "key": "tram",
+    "size": 102,
+    "x": 536.15185546875,
+    "y": 1078.9351806640625,
     "rot": 0
    },
    {
-    "type": "image",
-    "src": "WORD",
-    "ratio": 0.17142857142857143,
-    "size": 190,
+    "type": "text",
+    "text": "RIDE ASIA",
+    "font": "mono",
+    "curve": 0,
+    "size": 63,
+    "x": 573.109375,
+    "y": 1136.9544677734375,
+    "rot": -32
+   },
+   {
+    "type": "text",
+    "text": "2026",
+    "font": "mono",
+    "curve": 0,
+    "size": 45,
     "x": 540,
-    "y": 1260,
+    "y": 392.1080322265625,
+    "rot": 0
+   },
+   {
+    "type": "text",
+    "text": "#1",
+    "font": "mono",
+    "curve": 0,
+    "size": 67,
+    "x": 540,
+    "y": 2035.985595703125,
     "rot": 0
    }
   ]
  },
  {
-  "color": "#f2541b",
-  "front": [],
-  "back": [
+  "color": "#8a8a86",
+  "front": [
    {
     "type": "image",
-    "src": "ICON",
-    "ratio": 1.378,
-    "size": 90,
+    "curve": 0,
+    "size": 14,
     "x": 540,
-    "y": 900,
+    "y": 2028.7738037109375,
+    "rot": 0,
+    "src": "ICON",
+    "ratio": 1.378
+   }
+  ],
+  "back": [
+   {
+    "type": "text",
+    "text": "#1",
+    "font": "mono",
+    "curve": 0,
+    "size": 67,
+    "x": 540,
+    "y": 2035.985595703125,
     "rot": 0
    },
    {
-    "type": "image",
-    "src": "WORD",
-    "ratio": 0.17142857142857143,
-    "size": 190,
+    "type": "sketch",
+    "curve": 0,
+    "key": "steamer",
+    "size": 112,
     "x": 540,
-    "y": 1260,
+    "y": 1080,
+    "rot": 0
+   },
+   {
+    "type": "text",
+    "text": "2026",
+    "font": "mono",
+    "curve": 0,
+    "size": 45,
+    "x": 540,
+    "y": 392.1080322265625,
+    "rot": 0
+   },
+   {
+    "type": "text",
+    "text": "RIDE ASIA",
+    "font": "mono",
+    "curve": -1,
+    "size": 49,
+    "x": 550.383544921875,
+    "y": 1269.2020874023438,
     "rot": 0
    }
   ]

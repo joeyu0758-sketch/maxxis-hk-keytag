@@ -413,7 +413,12 @@ label.btn{display:inline-flex;align-items:center}
   var clock = new THREE.Clock();
   (function tick(){
     var t = clock.getElapsedTime();
-    if(autoCycle && t - lastSwitch > 3.5){ lastSwitch = t; focusTag((focus + 1) % tags.length, true); }
+    // Spin: show the front, flip to the back, then turn to the next tag
+    if(autoCycle){
+      var dt = t - lastSwitch;
+      if(dt > 1.6) tags[focus].flip = Math.PI;
+      if(dt > 5.2){ tags[focus].flip = 0; lastSwitch = t; focusTag((focus + 1) % tags.length, true); }
+    }
     carousel.rotation.y += (carGoal - carousel.rotation.y) * 0.06;
     tags.forEach(function(tg, i){
       tg.group.position.y = Math.sin(t*1.2 + tg.phase)*1.6;
